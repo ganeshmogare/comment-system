@@ -20,7 +20,7 @@ var router = express.Router();
 var config = {
     client_id: '78e0d3578db374d987f7',
     client_secret: 'b148631d3ae1c049969dace29edc08f34e3b88eb',
-    redirect_url: 'http://localhost:4000/github/callback',
+    redirect_url: 'http://localhost:4000/api/github/callback',
     authorize_url:'https://github.com/login/oauth/authorize',
     token_url: 'https://github.com/login/oauth/access_token',
     user_url: 'https://api.github.com/user',
