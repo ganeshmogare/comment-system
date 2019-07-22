@@ -1,0 +1,99 @@
+<ion-view>
+  <ion-nav-bar>
+    <ion-nav-title>
+
+      <h2>Timeline</h2>
+    </ion-nav-title>
+
+  </ion-nav-bar>
+
+  <ion-content style="margin-left: 10%;">
+    <ion-list>
+      <div class="card" style="display: block">
+        <textarea placeholder="write your comment here!" ng-model="postContent" name="writepost" id="" cols="100"
+          rows="3"></textarea>
+        <button ng-click="writepost(postContent);postContent =''" class="button button-small button-balanced"
+          style="float: right;width: 15%">Post </button>
+      </div>
+      <div>
+        <div ng-repeat="post in allPostData" ng-init="outerIndex =$index" class="card">
+          <div class="card-header row">
+            <div class="col col-80"> {{post.author}} </div>
+            <div class="col col-20">{{post.date}}</div>
+          </div>
+          <div class="card-body">
+            <div>
+              <p ng-if="editPostIndex !==$index ">
+                {{post.content}}
+              </p>
+              <textarea ng-if="editPostIndex ===$index" style="display: block;" ng-model="post.content"></textarea>
+
+              <button class="button button-small" ng-if="loggedInUser.userId === p.userId && editPostIndex !==$index"
+                ng-click="EditPost($index)">Edit</button>
+              <button class="button button-small" ng-if="loggedInUser.userId === p.userId && editPostIndex ===$index"
+                ng-click="SavePost(post)">Save</button>
+              <button class="button button-small" ng-click="showCommentBox($index)">Comment</button>
+            </div>
+            <div ng-if="commentBoxIndex === $index" style="border: solid black 1px;width:95%;display:inline-block">
+              <textarea ng-model="comment" placeholder="write comment" cols="100"></textarea>
+              <button ng-click="writeComment(post,comment);postContent =''" class="button button-small button-balanced"
+                style="float: right;width: 15%">Post </button>
+            </div>
+            <div class="card" ng-if="post.comments.length">
+              <div>
+                Comments
+              </div>
+              <ion-list>
+                <ion-item ng-repeat="c in post.comments" ng-init="innerIndex =$index">
+
+                  <div class="row" style="display: block">
+                    <p style="float: left">{{c.author}} </p>
+
+                    <p style="float: right;">{{c.date}} </p>
+                  </div>
+                  <div style="display: block;margin-top: 5%;">
+                    <textarea ng-model="c.comment" id="c._id" cols="100"></textarea>
+                    <div>
+
+                      <div style="border-top: solid black 1px">
+
+                        <div class="row" ng-repeat="r in c.comments" style="border-bottom: solid grey 1px;">
+                          <div class="row" style="display: block">
+                            <p style="float: left">{{r.author +" : "+r.comment}} </p>
+
+                            <p style="float: right;">{{r.date}} </p>
+                          </div>
+
+
+                        </div>
+                      </div>
+                      <div ng-if="editCommentId === c._id"
+                        style="margin-top: 1%;border: solid black 1px;display: inline-block;width:90%;">
+                        <textarea ng-model="reply" placeholder="write reply" cols="60"></textarea>
+                        <button ng-click="writeReply(post,c,reply);reply =''"
+                          class="button button-small button-balanced" style="float: right;width: 15%">Post </button>
+                      </div>
+                      <div>
+                        <button ng-if="editCommentId !== c._id" class="button button-small"
+                          ng-click="showReplyBox(c._id)">Reply</button>
+                        <button class="button button-small" ng-if="loggedInUser.userId === c.userId"
+                          ng-click="EditPost(c._id)">Edit</button>
+                      </div>
+                    </div>
+
+                  </div>
+
+            </div>
+            </ion-item>
+
+    </ion-list>
+
+    </div>
+
+    </div>
+
+    </div>
+    </div>
+    </ion-list>
+  </ion-content>
+</ion-view>

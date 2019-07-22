@@ -1,0 +1,12 @@
+/* Empty. Add your own CSS if you like */
+.card{
+    width: 80%;
+}
+.card-header{
+    width: 100%;
+    height: 10%;
+}
+.card-body{
+    width:100%;
+    height: 90%;
+}

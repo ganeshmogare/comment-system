@@ -1,0 +1,37 @@
+<ion-view>
+  <ion-nav-bar>
+    <ion-nav-title>
+
+      <h2>Login</h2>
+    </ion-nav-title>
+
+  </ion-nav-bar>
+  <ion-content>
+    <div style="margin-left: 30%;width: 40%;margin-top: 5%;">
+      <form ng-submit="doLogin()">
+        <div class="list">
+          <label class="item item-input">
+            <span class="input-label">Username</span>
+            <input type="text" placeholder="Enter username" ng-model="loginData.username">
+          </label>
+          <label class="item item-input">
+            <span class="input-label">Password</span>
+            <input type="password" placeholder="Enter password" ng-model="loginData.password">
+          </label>
+          <label class="item">
+            <button class="button button-block button-positive" style="width: 30%;margin-left: 35%;" type="submit">Log
+              in</button>
+          </label>
+
+        </div>
+      </form>
+      <br />
+      <label class="item" style="border: none;">
+        <p style="margin-left: 43%;">New User? </p>
+        <button class="button button-small button-positive" style="width: 30%;margin-left: 35%;" type="button"
+          ng-click="gotoRegister()">Register</button>
+      </label>
+
+    </div>
+  </ion-content>
+</ion-view>
