@@ -7,8 +7,6 @@
 *.tmp
 *.tmp.*
 log.txt
-*.sublime-project
-*.sublime-workspace
 .vscode/
 npm-debug.log*
 
@@ -27,7 +25,6 @@ platforms/
 plugins/
 plugins/android.json
 plugins/ios.json
-www/
 $RECYCLE.BIN/
 
 .DS_Store
