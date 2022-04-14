@@ -9,7 +9,7 @@
   "author": "Saurabh Mhatre",
   "license": "ISC",
   "dependencies": {
-    "async": "^2.1.5",
+    "async": "^3.2.2",
     "bcrypt": "^1.0.3",
     "body-parser": "^1.16.0",
     "cors": "^2.8.5",
